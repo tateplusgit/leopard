@@ -17,24 +17,24 @@ class Leopard(object):
         header = next(csvreader)
         print(header)
 
+    def get_dimension(self):
+        print("Pending")
+
 
     def count_instances(Gender, Female):
-        d = {}
-        with open('C:\py\diabetes_data.csv', 'r', encoding='utf-8', newline='') as f:
-            dialect = csv.Sniffer().sniff(f.read(1000))
-            #print(dialect)
+        print("Pending")
 
 
-            #Move to the beginning of the file headers
-            f.seek(0)
 
-            r = csv.DictReader(f, dialect=dialect)
+    def total_missing(self, csvfile):
+        rows = 0
+        missing = 0
 
-            for row in r:
-                if  row['Gender'] == 'Female':
-                    d[row['Gender']] = d.get(row['Gender'], 0) + 1
-        for k in d:
-           print ('{} {}'.format(k, d[k]))
+        for record in csvfile:
+            if record.count('NA') > 0:
+                rows += 1
+                missing += record.count('NA')
+        print('{# of rows with missing value: %d }' % (rows))
 
 
 
@@ -43,7 +43,7 @@ class Leopard(object):
 
     #1
     try:
-        csvfile = open("C:\py\diabetes_data.csv")
+        csvfile = open("/Users/James/PycharmProjects/nky/diabetes_data.csv")
     except IOError:
         print("File not found!")
     else:
@@ -52,20 +52,27 @@ class Leopard(object):
 
 
     #2
-    csvfile = open("C:\py\diabetes_data.csv")
-    get_header('self', csvfile)
-    csvfile.close()
+    #csvfile = open("C:\py\diabetes_data.csv")
+    #get_header('self', csvfile)
+    #csvfile.close()
 
 
     #3
-    csvfile = open("C:\py\diabetes_data.csv")
+    #csvfile = open("C:\py\diabetes_data.csv")
     #get_dimension()
 
 
     #4
-    csvfile = open("C:\py\diabetes_data.csv")
-    count_instances('Gender', 'male')
+    #csvfile = open("C:\py\diabetes_data.csv")
+    #count_instances('Gender', 'male')
+    #with open('Sparta/Users/James/PycharmProjects/nky/diabetes_data.csv', 'r', encoding='utf-8', newline='') as f:
+    #count_instances('Gender', 'male')
 
+
+    #5
+    csvfile = open("/Users/James/PycharmProjects/nky/diabetes_data.csv")
+    total_missing('self', csvfile)
+    csvfile.close()
 
 #ZeroDivisionError raised when you divide a number by zero
 #ImportError raised when you try to import a library that is not installed
